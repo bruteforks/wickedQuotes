@@ -67,7 +67,7 @@ def multireplace(string, replacements):
     regexp = re.compile('|'.join(map(re.escape, substrs)))
     return regexp.sub(lambda match: replacements[match.group(0)], string)
 
-xmltodict.parse(open(str(sys.argv[1]), "rbU"), item_depth=2, item_callback=handle)
+xmltodict.parse(open(str(sys.argv[1]), "rb"), item_depth=2, item_callback=handle)
 
 with open('quotes-' + str(cutoffArg) + '-' + str(langArg) + '.json', 'w') as outfile:
      json.dump(quotesObject, outfile, sort_keys = True, indent = 4, ensure_ascii = False)
